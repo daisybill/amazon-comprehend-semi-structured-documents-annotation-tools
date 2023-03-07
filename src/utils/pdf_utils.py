@@ -4,16 +4,16 @@
 
 import io
 
-from PyPDF2 import pdf
+from PyPDF2 import PdfReader, PdfWriter
 
 
 def get_pdf_page_bytes(pdf_bytes_io: io.BytesIO, page_number: int) -> bytes:
     """Get the PDF bytes for a single PDF page."""
-    pdf_file_reader = pdf.PdfFileReader(stream=pdf_bytes_io, strict=False)
-    pdf_file_writer = pdf.PdfFileWriter()
+    pdf_file_reader = PdfReader(stream=pdf_bytes_io, strict=False)
+    pdf_file_writer = PdfWriter()
 
-    page: pdf.PageObject = pdf_file_reader.getPage(pageNumber=page_number - 1)
-    pdf_file_writer.addPage(page=page)
+    page = pdf_file_reader.pages[page_number - 1]
+    pdf_file_writer.add_page(page=page)
 
     pdf_page_bytes_io = io.BytesIO()
     pdf_file_writer.write(pdf_page_bytes_io)

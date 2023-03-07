@@ -272,7 +272,7 @@ def main():
         Usage: --annotator-metadata "key=Info,value=Sample information,key=Due Date,value=Sample date value 12/12/1212" ')
     parser.add_argument('--blind1-labeling-job-name', type=str, help='Blind1 labeling job name to use for verification. Usage: --blind1-labeling-job-name sagemaker-labeling-job-123')
     parser.add_argument('--blind2-labeling-job-name', type=str, help='Blind2 labeling job name to use for verification. Usage: --blind2-labeling-job-name sagemaker-labeling-job-123')
-    parser.add_argument('--only-include-expired-tasks', action='store_true', help='Flag to indicate to only include tasks which had expired (only available for use in conjunction with a verification job). \
+    parser.add_argument('--only-include-expired-tasks', action='store_true', help='Flag to indicate to only include tasks which had expired (). \
         Usage: --blind1-labeling-job-name labeling-job-123 --only-include-expired-tasks')
     parser.add_argument('--schema-path', type=str, help='Local path to schema file to use for the labeling job which will overwrite --entity-types. Usage: --annotation-schema /home/user1/schema.json')
     parser.add_argument('--no-suffix', action='store_true', help='Flag to indicate to only use job-name-prefix for job name. Otherwise, a unique ID will be appended to the job-name-prefix.')
